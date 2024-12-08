@@ -26,12 +26,61 @@
       <button>Add item</button>
     </div>
 
-    <ul>
+    <ul id="list">
 
     </ul>
 
+
+
     <script>
 
+
+    const ul = document.getElementById("list");
+    const userInput = document.getElementById("item");
+    const addButton = document.querySelector("button");
+
+    addButton.addEventListener('click', () => {
+      const value = userInput.value = "";
+      console.log(value)
+    });
+
+
+    ////
+    const listItem = document.createElement("li");
+    const span = document.createElement("span");
+    const deleteBtn = document.createElement("button");
+    const red = document.createElement("p");
+
+    listItem.appendChild(span)
+    listItem.appendChild(deleteBtn);
+
+    span.textContent = userInput.value;
+    deleteBtn.textContent = 'Delete';
+
+    list.appendChild(listItem);
+
+    ///1. the list cannot be childappend in the ul -- added ID to ul to properly select it,
+    //using tag didnt work or getelement by ID-- now its working
+    ///2. not sure if the span is capturing the value
+    //3. appending it to addbutton seems to work as i can see the delete button
+    ///4: delete button appearing even without content
+    
+
+
+
+
+    deleteBtn.addEventListener('click', function(){
+      this.parentElement.remove();
+
+    })
+
+  
+
+    
+
+
+
+  
     </script>
   </body>
 </html>
